@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08ccfa8d-9a8c-4736-9066-435e95734e2f" name="Changes" comment="+czwarte zadanie">
+    <list default="true" id="08ccfa8d-9a8c-4736-9066-435e95734e2f" name="Changes" comment="+piate zadanie">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
@@ -58,7 +58,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674366279918</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="+piate zadanie">
+      <created>1674369134183</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1674369134183</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -66,6 +73,7 @@
     <MESSAGE value="+pierwsze zadanie" />
     <MESSAGE value="+drugie zadanie" />
     <MESSAGE value="+czwarte zadanie" />
-    <option name="LAST_COMMIT_MESSAGE" value="+czwarte zadanie" />
+    <MESSAGE value="+piate zadanie" />
+    <option name="LAST_COMMIT_MESSAGE" value="+piate zadanie" />
   </component>
 </project>

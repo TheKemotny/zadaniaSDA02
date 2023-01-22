@@ -1,12 +1,9 @@
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
     public static void wypiszTablice(int[] tab){
-        for(int i = 0; i < tab.length; i++){
-            System.out.println("tab[" + i + "]: " + tab[i]);
-        }
+        System.out.println("tab = " + Arrays.toString(tab));
     }
 
     //Napisać program, który wstawia do tablicy losowo generowane tylko liczby parzyste.
@@ -41,8 +38,52 @@ public class Main {
         System.out.println(modulo9result);
     }
 
+    //Napisać program, który wczytuje liczby do tablicy dopóki użytkownik nie poda liczby
+    //100. Następnie należy policzyć średnią arytmetyczną i ją wypisać.
     public static void trzecieZadanie(){
+        List<Integer> tablicaAleLista = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+        int liczbaPodanaPrzezUzytkownika = 0;
+        float suma = 0f;
+        do{
+            System.out.println("Podaj liczbe: ");
+            try{
+                liczbaPodanaPrzezUzytkownika = scanner.nextInt();
+                tablicaAleLista.add(liczbaPodanaPrzezUzytkownika);
+            }catch (Exception e){
+                scanner.nextLine();
+            }
+        }while (liczbaPodanaPrzezUzytkownika != 100);
 
+        for (int liczba:tablicaAleLista) {
+            suma += liczba;
+        }
+        float srednia = suma / tablicaAleLista.toArray().length;
+        System.out.println("Liczby: " + tablicaAleLista + " ich srednia to: " + srednia);
+    }
+
+    public static void trzecieBezZnajomosciList(){
+        Scanner scanner = new Scanner(System.in);
+        String result = "";
+        int liczbaPodanaPrzezUzytkownika = 0;
+        float suma = 0f;
+        do{
+            System.out.println("Podaj liczbe: ");
+            try{
+                liczbaPodanaPrzezUzytkownika = scanner.nextInt();
+                result = result.concat(liczbaPodanaPrzezUzytkownika + " ");
+            }catch (Exception e){
+                scanner.nextLine();
+            }
+        }while (liczbaPodanaPrzezUzytkownika != 100);
+        String[] tablicaLiczbWStringu = result.split(" ");
+        int[] tab = new int[tablicaLiczbWStringu.length];
+        for (int i = 0; i < tab.length; i++) {
+            tab[i] = Integer.parseInt(tablicaLiczbWStringu[i]);
+            suma += tab[i];
+        }
+        float srednia = suma / tab.length;
+        System.out.println("Liczby: " + Arrays.toString(tab) + " ich srednia to: " + srednia);
     }
 
     //Napisać program, gdzie mamy tablicę 7 Stringów “Ala” , “ma”, “kota”, “a”, “on”,
@@ -62,13 +103,8 @@ public class Main {
                 indeksyOdUzytkownika = -1;
                 scanner.nextLine();
             }
-            switch (indeksyOdUzytkownika){
-                default -> {
-                    //poza zakresem
-                }
-                case 0,1,2,3,4,5,6 ->{
-                    result = result.concat(tabZdania[indeksyOdUzytkownika]);
-                }
+            if(indeksyOdUzytkownika >= 0 && indeksyOdUzytkownika < tabZdania.length){
+                result = result.concat(tabZdania[indeksyOdUzytkownika]);
             }
         }
         System.out.println(result);
@@ -122,6 +158,7 @@ public class Main {
         pierwszeZadanie();
         drugieZadanie();
         trzecieZadanie();
+        trzecieBezZnajomosciList();
         czwarteZadanie("Ala ma kota a on ma ja");
         piateZadanie();
         piateZadanieAleZPodpowiedzi();
