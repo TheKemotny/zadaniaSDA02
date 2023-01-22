@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.Scanner;
 
 public class Main {
 
@@ -30,9 +31,9 @@ public class Main {
             tab[i] = random.nextInt(29) + 1;
             if(tab[i]%3==0){
                 if(tab[i]%9==0){
-                    modulo9result += tab[i] + " ";
+                    modulo9result += (tab[i] + " ");
                 }
-                modulo3result += tab[i] + " ";
+                modulo3result += (tab[i] + " ");
             }
         }
         wypiszTablice(tab);
@@ -44,9 +45,85 @@ public class Main {
 
     }
 
+    //Napisać program, gdzie mamy tablicę 7 Stringów “Ala” , “ma”, “kota”, “a”, “on”,
+    //“ma”,”ja”. Użytkownik może podać 2 inty, które przyjmują wartość od 0 do 6, a na tej
+    //podstawie wyciągane są z tablicy Stringi spod tych indeksów, a następnie należy je
+    //połączyć i wypisać.
+    public static void czwarteZadanie(String stringDoRozbicia){
+        String[] tabZdania = stringDoRozbicia.split(" ");
+        Scanner scanner = new Scanner(System.in);
+        String result = "";
+        int indeksyOdUzytkownika;
+        for(int i = 0; i < 2; i++){
+            System.out.println("Podaj indeks z jakiego chcesz pobrac Stringi: ");
+            try{
+                indeksyOdUzytkownika = scanner.nextInt();
+            }catch (Exception e){
+                indeksyOdUzytkownika = -1;
+                scanner.nextLine();
+            }
+            switch (indeksyOdUzytkownika){
+                default -> {
+                    //poza zakresem
+                }
+                case 0,1,2,3,4,5,6 ->{
+                    result = result.concat(tabZdania[indeksyOdUzytkownika]);
+                }
+            }
+        }
+        System.out.println(result);
+    }
+
+    //Napisać program, który pobiera od użytkownika liczbę całkowitą, a następnie: oblicza
+    //sumę cyfr tej liczby. (Podpowiedź - zamiana inta na Stringa Integer. toString(int) )
+    public static void piateZadanie(){
+        Scanner scanner = new Scanner(System.in);
+        int liczbaUzytkownika;
+        System.out.println("Podaj liczbe, abym zsumowal cyfry: ");
+        try{
+            liczbaUzytkownika = scanner.nextInt();
+        }catch (Exception e){
+            scanner.nextLine();
+            System.out.println("Nie podales liczby");
+            return;
+        }
+        int suma = 0;
+        int liczbaUzytkownikaAleBezwgledna = Math.abs(liczbaUzytkownika);
+        while(liczbaUzytkownikaAleBezwgledna != 0){
+            suma += (liczbaUzytkownikaAleBezwgledna%10);
+            liczbaUzytkownikaAleBezwgledna /= 10;
+        }
+        System.out.println("Liczba " + liczbaUzytkownika + ", a suma cyfr tej liczby to " + suma );
+    }
+
+    public static void piateZadanieAleZPodpowiedzi(){
+        Scanner scanner = new Scanner(System.in);
+        int liczbaUzytkownika;
+        System.out.println("Podaj liczbe, abym zsumowal cyfry: ");
+        try{
+            liczbaUzytkownika = scanner.nextInt();
+        }catch (Exception e){
+            scanner.nextLine();
+            System.out.println("Nie podales liczby");
+            return;
+        }
+        String liczbaDoStringa = Integer.toString(liczbaUzytkownika);
+        int suma = 0;
+        if(liczbaUzytkownika < 0){
+            liczbaDoStringa = liczbaDoStringa.substring(1);
+        }
+        for(int i = 0; i < liczbaDoStringa.length(); i++){
+            suma += Character.getNumericValue(liczbaDoStringa.charAt(i));
+        }
+        System.out.println("Liczba " + liczbaUzytkownika + ", a suma cyfr tej liczby to " + suma );
+    }
+
     public static void main(String[] args) {
-        System.out.println("Hello world!");
         pierwszeZadanie();
         drugieZadanie();
+        trzecieZadanie();
+        czwarteZadanie("Ala ma kota a on ma ja");
+        piateZadanie();
+        piateZadanieAleZPodpowiedzi();
     }
 }
